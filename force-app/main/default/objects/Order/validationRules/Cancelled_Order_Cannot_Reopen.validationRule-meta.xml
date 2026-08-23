@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cancelled_Order_Cannot_Reopen</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(PRIORVALUE(Status), &quot;Cancelled&quot;),
+    OR(
+        ISPICKVAL(Status, &quot;Processing&quot;),
+        ISPICKVAL(Status, &quot;Shipped&quot;),
+        ISPICKVAL(Status, &quot;Delivered&quot;)
+    )
+)</errorConditionFormula>
+    <errorMessage>A Cancelled Order cannot be moved to Processing, Shipped, or Delivered.</errorMessage>
+</ValidationRule>

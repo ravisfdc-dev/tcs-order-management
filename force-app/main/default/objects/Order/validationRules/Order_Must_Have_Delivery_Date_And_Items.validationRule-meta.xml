@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Order_Must_Have_Delivery_Date_And_Items</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    ISPICKVAL(Status, &quot;Submitted&quot;),
+    OR(
+        ISBLANK(Expected_Delivery_Date__c),
+        Order_Item_Count__c = 0
+    )
+)</errorConditionFormula>
+    <errorMessage>A Submitted Order must have an Expected Delivery Date and at least one Order Product.</errorMessage>
+</ValidationRule>

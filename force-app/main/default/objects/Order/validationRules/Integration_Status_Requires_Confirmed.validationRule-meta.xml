@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integration_Status_Requires_Confirmed</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(
+    NOT(ISPICKVAL(Integration_Status__c, &quot;Not Sent&quot;)),
+    NOT(ISPICKVAL(Status, &quot;Confirmed&quot;))
+)</errorConditionFormula>
+    <errorMessage>Integration Status can only be changed from Not Sent when the Order is Confirmed.</errorMessage>
+</ValidationRule>
